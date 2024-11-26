@@ -2,7 +2,7 @@ import torch
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.metrics import recall_score, f1_score, confusion_matrix, accuracy_score
+from sklearn.metrics import recall_score, f1_score, confusion_matrix, accuracy_score,classification_report
 import torchvision
 import torch.nn as nn
 import pickle
@@ -55,3 +55,4 @@ with torch.no_grad():
     plt.figure(figsize=(15, 5))
     sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=class_labels, yticklabels=class_labels)
     plt.show()
+    print("Classification report: ",classification_report(labels_test, predicted))

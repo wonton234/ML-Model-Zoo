@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+Models/CNN/VGGBig/VGGBig.pth filter=lfs diff=lfs merge=lfs -text
+Models/CNN/VGGNorm/VGGNorm.pth filter=lfs diff=lfs merge=lfs -text
