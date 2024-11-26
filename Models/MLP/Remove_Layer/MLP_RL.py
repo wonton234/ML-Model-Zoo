@@ -76,7 +76,6 @@ for n in range(1000):
     total += labels_test.size(0)
     correct += (predicted == labels_test).sum().item()
     print(f'Accuracy of the network on the test images: {100 * correct / total} %')
-torch.save(model.state_dict(), "mlp_rl_model.pth")
 
 
 

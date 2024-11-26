@@ -156,5 +156,6 @@ if __name__ == "__main__":
             total += val_labels.size(0)
     print(f"Validation Loss: {val_loss / len(testloader)}, Accuracy: {100 * correct / total}%")
 
-
+  
+  torch
   print("Finished")
