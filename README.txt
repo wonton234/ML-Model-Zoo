@@ -18,3 +18,5 @@ The confusion matrix produced by the Decision tree is just an example since all 
 specific testset used to produce the results
 
 
+The VGG evaluation models (.pth files) are available on GitHub since they were too big to add to the moodle submission.
+

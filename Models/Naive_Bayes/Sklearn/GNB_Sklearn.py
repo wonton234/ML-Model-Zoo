@@ -1,13 +1,9 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
-from torch.utils.data import DataLoader, Subset
 import matplotlib.pyplot as plt
-import numpy as np
 from torchvision import models
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 import torch.nn as nn
-import torch.optim as optim
 import seaborn as sns
 from sklearn.metrics import recall_score,f1_score,accuracy_score,confusion_matrix,classification_report
 import pickle

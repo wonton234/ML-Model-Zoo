@@ -2,11 +2,10 @@ import torch
 import torchvision
 import torchvision.transforms as transforms
 import matplotlib.pyplot as plt
-from torchvision import models
 import pickle
 import numpy as np
 import seaborn as sns
-from sklearn.metrics import accuracy_score,classification_report,accuracy_score,confusion_matrix
+from sklearn.metrics import classification_report,confusion_matrix
 
 
 with open("processed_data.pkl", "rb") as f:
@@ -30,6 +29,7 @@ trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
 testset = torchvision.datasets.CIFAR10(root='./data',train = False, download=True,transform = transform)
 
 
+# torch was only used before this point not after
 class GNB:
   x_train:np.ndarray
   y_train:np.ndarray
@@ -73,7 +73,7 @@ class GNB:
   def likelihood(self, x, mean, var):
     numerator = np.exp(-((x - mean) ** 2) / (2 * var))
     denominator = np.sqrt(2 * np.pi * var)
-    return numerator / denominator
+    return numerator/denominator
 
 
 # run the fit and predict functions
@@ -83,11 +83,7 @@ GNBClassifier.fit()
 
 GND_predictions = GNBClassifier.predict(feature_vectors_test_50)
 
-# Print first few predictions for verification
-accuracy = accuracy_score(labels_test, GND_predictions)
-
-
-print("Accuracy:", accuracy)
+print("Classification report: ",classification_report(labels_test, GND_predictions))
 
 cm = confusion_matrix(labels_test, GND_predictions)
 class_labels = trainset.classes
@@ -95,7 +91,6 @@ class_labels = trainset.classes
 plt.figure(figsize=(15, 5))
 sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", xticklabels=class_labels, yticklabels=class_labels)
 plt.title("GNB_Manual")
-print("Classification report: ",classification_report(labels_test, GND_predictions))
 
 # Save the confusion matrix plot as an image (used chatgpt for this part)
 # plt.savefig("confusion_matrix_GNB_Manual.png", dpi=300, bbox_inches='tight') 

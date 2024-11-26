@@ -55,5 +55,4 @@ plt.savefig("confusion_matrix_DT_biggers.png", dpi=300, bbox_inches='tight')
 
 plt.show()
 plt.close()
-print("Accuracy:", accuracy)
 
